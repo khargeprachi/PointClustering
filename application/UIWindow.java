@@ -58,6 +58,14 @@ public class UIWindow extends JFrame {
         bottomPanel.add(clear);               
         
         
+        load.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	/*System.out.println("Loading");*/
+                p.loadFile();
+            }
+        });
+        
+        
         pack();
         validate();
 		this.setVisible(true);
