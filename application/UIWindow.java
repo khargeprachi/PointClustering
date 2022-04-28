@@ -13,9 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-//import PointClustering.circlepanel;
-//import PointClustering.drawClickListener;
-
 public class UIWindow extends JFrame {
 
 	JButton save, load, generate, run, clear;
@@ -33,10 +30,13 @@ public class UIWindow extends JFrame {
         getContentPane().setLayout(new GridLayout());  // the default GridLayout is like a grid with 1 column and 1 row,
         getContentPane().add(splitPane);               // due to the GridLayout, our splitPane will now fill the whole window
 
-		
+        PointPanel p = new PointPanel();
+    	p.addMouseListener(new DrawClickListener(p));
+    	
 		splitPane.setBackground(Color.white);
         splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);  // we want it to split the window vertically
-        splitPane.setDividerLocation(600);                   
+        splitPane.setDividerLocation(600);  
+        splitPane.setTopComponent(p);
         splitPane.setBottomComponent(bottomPanel);            // and at the bottom we want our "bottomPanel"
         
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.X_AXIS));
