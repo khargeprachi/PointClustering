@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -55,9 +55,16 @@ public class UIWindow extends JFrame {
 		bottomPanel.add(load);
 		bottomPanel.add(generate);
 		bottomPanel.add(run);
-        bottomPanel.add(clear);               
-        
-        
+        bottomPanel.add(clear);
+
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/*System.out.println("Saving");*/
+				p.saveFile();
+			}
+		});
+
+
         pack();
         validate();
 		this.setVisible(true);
