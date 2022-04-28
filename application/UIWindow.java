@@ -13,13 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+
 public class UIWindow extends JFrame {
 
 	JButton save, load, generate, run, clear;
 	/*JLayeredPane panel;*/
 	private final JSplitPane splitPane;  // split the window in top and bottom
     private final JPanel bottomPanel;    // container panel for the bottom
-    
+    SaveFileService saveFileService= new SaveFileService();
     UIWindow(){
 		splitPane = new JSplitPane();
 
@@ -57,15 +58,10 @@ public class UIWindow extends JFrame {
 		bottomPanel.add(run);
         bottomPanel.add(clear);
 
-		save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/*System.out.println("Saving");*/
-				p.saveFile();
-			}
-		});
 
+		saveFileService.saveActionListener(save, p);
 
-        pack();
+		pack();
         validate();
 		this.setVisible(true);
 		this.setResizable(false);
