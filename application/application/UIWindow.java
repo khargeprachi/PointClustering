@@ -1,4 +1,4 @@
-
+package application;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,13 +13,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+
 public class UIWindow extends JFrame {
 
 	JButton save, load, generate, run, clear;
 	/*JLayeredPane panel;*/
 	private final JSplitPane splitPane;  // split the window in top and bottom
     private final JPanel bottomPanel;    // container panel for the bottom
-    
+    SaveFileService saveFileService= new SaveFileService();
+    ClearFileService clearFileService= new ClearFileService();
+    LoadFileService loadFileService= new LoadFileService();
+
     UIWindow(){
 		splitPane = new JSplitPane();
 
@@ -55,18 +59,15 @@ public class UIWindow extends JFrame {
 		bottomPanel.add(load);
 		bottomPanel.add(generate);
 		bottomPanel.add(run);
-        bottomPanel.add(clear);               
-        
-        
-        load.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	/*System.out.println("Loading");*/
-                p.loadFile();
-            }
-        });
-        
-        
-        pack();
+        bottomPanel.add(clear);
+
+
+		saveFileService.saveActionListener(save, p);
+		clearFileService.clearActionListener(clear, p);
+		
+		loadFileService.loadActionListener(load, p);
+		
+		pack();
         validate();
 		this.setVisible(true);
 		this.setResizable(false);
