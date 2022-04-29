@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.*;
+
+
 import java.lang.Math;
 
 public class PointPanel extends JPanel {
@@ -18,6 +20,16 @@ public class PointPanel extends JPanel {
 	private List<Point> points = new LinkedList<Point>();
 	private List<Point> unDraw = new LinkedList<Point>();
 
+	public List<Point> getUnDraw() {
+		return unDraw;
+	}
+
+
+	public void setUnDraw(List<Point> unDraw) {
+		this.unDraw = unDraw;
+	}
+
+
 	public void addPoints(Point point) {
 		points.add(point);
 		this.repaint();
@@ -29,7 +41,10 @@ public class PointPanel extends JPanel {
 		for(Point p : points) {
 			p.draw(g);
 		}
-	
+		for(Point c: unDraw) {
+			c.unDraw(g);
+		}
+		unDraw.clear();
 	}
 
 
@@ -41,5 +56,6 @@ public class PointPanel extends JPanel {
 		this.points = points;
 	}
 
+	
 }
 
