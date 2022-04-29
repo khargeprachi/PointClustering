@@ -62,6 +62,23 @@ public class UIWindow extends JFrame {
 
 		saveFileService.saveActionListener(save, p);
 		clearFileService.clearActionListener(clear, p);
+		
+		run.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	/*System.out.println("Running");*/
+            	 String d=JOptionPane.showInputDialog(p,"Enter Eucledian distance :"); 
+            	 if(d != null) {
+	            	 try { 
+	         			int distance = Integer.parseInt(d); 
+	         			System.out.println(distance + " is a valid integer"); 
+	         		 }  
+	         		catch (NumberFormatException e1){ 
+	         			JOptionPane.showMessageDialog(p,d + " is not a valid integer"); 
+	         		} 
+            	 }
+            }
+        });
+		
 		pack();
         validate();
 		this.setVisible(true);
