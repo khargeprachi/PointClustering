@@ -22,6 +22,8 @@ public class UIWindow extends JFrame {
     private final JPanel bottomPanel;    // container panel for the bottom
     SaveFileService saveFileService= new SaveFileService();
     ClearFileService clearFileService= new ClearFileService();
+    LoadFileService loadFileService= new LoadFileService();
+
     UIWindow(){
 		splitPane = new JSplitPane();
 
@@ -62,6 +64,9 @@ public class UIWindow extends JFrame {
 
 		saveFileService.saveActionListener(save, p);
 		clearFileService.clearActionListener(clear, p);
+		
+		loadFileService.loadActionListener(load, p);
+		
 		pack();
         validate();
 		this.setVisible(true);
