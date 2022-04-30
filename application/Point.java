@@ -29,6 +29,11 @@ public class Point implements Serializable{
 		g.setColor(Color.white);
 		g.fillOval(x, y, 5, 5);
 	}
+	public void mark(Graphics g) {
+
+		g.setColor(Color.red);
+		g.fillOval(x, y, 5, 5);
+	}
 	@Override
 	public String toString() {
 		return "x:" + this.x + "\ty: " + this.y + "\n";

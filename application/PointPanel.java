@@ -20,6 +20,25 @@ public class PointPanel extends JPanel {
 	private List<Point> points = new LinkedList<Point>();
 	private List<Point> unDraw = new LinkedList<Point>();
 
+	public List<Point> getVisited() {
+		return visited;
+	}
+
+	public void setVisited(List<Point> visited) {
+		this.visited = visited;
+	}
+
+	public List<Point> getMarked() {
+		return marked;
+	}
+
+	public void setMarked(List<Point> marked) {
+		this.marked = marked;
+	}
+
+	private List<Point> visited = new LinkedList<Point>();
+	private List<Point> marked = new LinkedList<Point>();
+
 	public List<Point> getUnDraw() {
 		return unDraw;
 	}
@@ -44,6 +63,14 @@ public class PointPanel extends JPanel {
 		for(Point c: unDraw) {
 			c.unDraw(g);
 		}
+//		for(Point c: visited) {
+//			c.mark(g);
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		unDraw.clear();
 	}
 
