@@ -23,8 +23,10 @@ public class UIWindow extends JFrame {
     SaveFileService saveFileService= new SaveFileService();
     ClearFileService clearFileService= new ClearFileService();
 	RunService runService= new RunService();
+	LoadFileService loadFileService= new LoadFileService();
 
 	UIWindow(){
+
 		splitPane = new JSplitPane();
 
         bottomPanel = new JPanel();
@@ -65,8 +67,8 @@ public class UIWindow extends JFrame {
 		saveFileService.saveActionListener(save, p);
 		clearFileService.clearActionListener(clear, p);
 		runService.runActionListener(run, p);
+		loadFileService.loadActionListener(load, p);
 
-		
 		pack();
         validate();
 		this.setVisible(true);
